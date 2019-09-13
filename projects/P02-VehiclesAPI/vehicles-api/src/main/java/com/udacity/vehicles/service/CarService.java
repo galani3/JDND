@@ -78,7 +78,7 @@ public class CarService {
 
 
             // Get price from webClientPrice and store it into car object
-            Price price = webClientPricing.get().uri("/services/price?vehicleId={id}", id).retrieve().bodyToMono(Price.class).block();
+            Price price = webClientPricing.get().uri("/price/{id}", id).retrieve().bodyToMono(Price.class).block();
             car.setPrice(price.getPrice().toString());
 
             // Get Longtitude and Latitude from car location and pass into webClientMaps
